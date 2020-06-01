@@ -31,13 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+    'online_users'
 ]
 
 MIDDLEWARE = [
@@ -48,8 +49,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'middleware.activeuser_middleware.ActiveUserMiddleware',
 ]
+
+MIDDLEWARE_CLASSES = (
+    
+    'online_users.middleware.OnlineNowMiddleware',
+)
+
 
 ROOT_URLCONF = 'test_site.urls'
 
