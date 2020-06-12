@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.sessions.models import Session
+from django.utils import timezone
+
 
 # Create your views here.
 def indexView(request):
@@ -8,7 +12,11 @@ def indexView(request):
 
 @login_required
 def dashboardView(request):
-    return render(request, 'dashboard.html')
+    users = User.objects.values_list('username', flat = True)
+    
+    #TODO write function to determine is user is online
+    #TODO also remove extra symbols
+    return render(request, 'dashboard.html', {'users': users})
 
 def registerView(request):
     if request.method == "POST":
@@ -23,4 +31,3 @@ def registerView(request):
 
 def status_info(request):
     return render(request, 'status_info.html')
-

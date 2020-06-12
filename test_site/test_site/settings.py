@@ -56,7 +56,6 @@ MIDDLEWARE_CLASSES = (
     'online_users.middleware.OnlineNowMiddleware',
 )
 
-
 ROOT_URLCONF = 'test_site.urls'
 
 TEMPLATES = [
@@ -140,4 +139,5 @@ USER_LASTSEEN_TIMEOUT = 60 * 60 * 24 * 7
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = '/accounts/dashboards/'
+LOGIN_REDIRECT_URL = '/dashboards/'
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
