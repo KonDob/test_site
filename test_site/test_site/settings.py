@@ -139,5 +139,12 @@ USER_LASTSEEN_TIMEOUT = 60 * 60 * 24 * 7
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL = '/dashboards/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+STATICFILES_DIRS = [ 
+    os.path.join(BASE_DIR, "static")
+    ]
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/mediafiles')
+
+# LOGIN_REDIRECT_URL = '/dashboards/'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
