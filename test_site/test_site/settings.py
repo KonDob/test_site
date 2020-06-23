@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'online_users'
 ]
 
 MIDDLEWARE = [
@@ -146,5 +145,5 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/mediafiles')
 
-# LOGIN_REDIRECT_URL = '/dashboards/'
+LOGIN_REDIRECT_URL = '/dashboards/'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
