@@ -3,7 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
+from .models import UserAccount
 from django.utils import timezone
+from django.contrib import messages
 
 
 # Create your views here.
@@ -31,3 +33,16 @@ def registerView(request):
 
 def status_info(request):
     return render(request, 'status_info.html')
+
+def change_status(request):
+    #TODO change value of current user status
+    if request.method == "POST":
+        if request.user.useraccount.status:
+            request.user.useraccount.toggle_status()
+            btn_status = 'Online'
+        else:
+            request.user.useraccount.toggle_status()
+            btn_status = 'Offline'
+            
+    return render(request, 'status_info.html', {'status': btn_status})
+    

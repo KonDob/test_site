@@ -1,7 +1,15 @@
 {% extends 'index.html' %}
 {% block content %}
 
-    <h1>Your current status, is online = {{user.is_active}} </h1>
-    
+    <h1>Your current status, is online = {{user.useraccount.status}} </h1>
+    <dev>
+        Toggle online status 
+        <dev>
+        <form action="{% url 'change_status'%}"  method="post">
+            {% csrf_token %}
+          <p><input name = '123' type="submit" value={{status}}></p>
+        </form>
+    </dev>
+    </dev>
 {% endblock  %}
 

@@ -1,2 +1,7 @@
 .vscode/
-*.pyc
+*.cpython-38.pyc
+microf/lib/
+microf/bin/
+test_site/test_site/__pycache__/
+test_site/__pycache__/*
+*/__pycache__/*

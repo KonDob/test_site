@@ -47,7 +47,6 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 MIDDLEWARE_CLASSES = (
@@ -145,5 +144,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/mediafiles')
 
-LOGIN_REDIRECT_URL = '/dashboards/'
+LOGIN_REDIRECT_URL = '/status_info/'
+LOGOUT_REDIRECT_URL = ''
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
