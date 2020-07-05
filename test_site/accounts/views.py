@@ -6,7 +6,7 @@ from django.contrib.sessions.models import Session
 from .models import UserAccount
 from django.utils import timezone
 from django.contrib import messages
-
+from django.http import JsonResponse, Http404
 
 # Create your views here.
 def indexView(request):
@@ -31,8 +31,14 @@ def registerView(request):
     
     return render(request,'registration/register.html', {'form':form})
 
+
+def account(request):
+    return render(request, 'account.html')
+
+
 def status_info(request):
     return render(request, 'status_info.html')
+
 
 def change_status(request):
     #TODO change value of current user status
@@ -46,3 +52,19 @@ def change_status(request):
             
     return render(request, 'status_info.html', {'status': btn_status})
     
+def validate_username(request):
+    username = request.GET.get('username', None)
+    data = {
+        'is_taken': User.objects.filter(username__iexact=username).exists()
+    }
+    if data['is_taken']:
+        data['error_message'] = 'A user with this username already exists.'
+    return JsonResponse(data)
+
+
+def add_ajax(request):
+    if request.is_ajax():
+        response = {'first-text': 'Lorem Ipsum is simply dummy text', 'second-text': 'to make a type specimen book. It has '}
+        return JsonResponse(response)
+    else:
+        raise Http404

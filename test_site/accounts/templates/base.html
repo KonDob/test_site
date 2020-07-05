@@ -1,0 +1,21 @@
+<html>
+{% load static %}
+
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Welcome{% endblock %}</title>
+    {% block stylesheet %}{% endblock %}
+  </head>
+  <body>
+    <header>
+      Welcome to test site
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  <script src= "{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src= "{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    {% block javascript %}{% endblock %}
+  </body>
+</html>

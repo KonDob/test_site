@@ -144,6 +144,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/mediafiles')
 
-LOGIN_REDIRECT_URL = '/status_info/'
+LOGIN_REDIRECT_URL = '/account/'
 LOGOUT_REDIRECT_URL = ''
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True

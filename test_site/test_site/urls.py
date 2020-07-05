@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from accounts import views
+from django.conf.urls import url
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('accounts.url')),
+    url(r'^validate_username/$', views.validate_username, name='validate_username')
 ]
