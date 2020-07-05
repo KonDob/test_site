@@ -3,11 +3,10 @@
     <h1>Welcome, {{user.username}}</h1>
     <h1>List of all users, {{users}}</h1>
     {%for user in users %}
-        <h2>{{user}} {% if user.is_authenticated %}</h2>
-            <h1>bla-bla-bla {{user.is_authenticated}}</h1>
+        {% if user.is_authenticated %}
+            <h1>{{user}} User is user.is_authenticated</h1>
         {% else %}
-            <h1>Nope</h1>
+            <h4>{{user}} User isn`t user.is_authenticated</h4>
         {% endif %}
-
     {% endfor %}
 {% endblock  %}

@@ -1,9 +1,48 @@
 .vscode/
 *.cpython-38.pyc
-microf/lib/
-microf/bin/
-test_site/test_site/__pycache__/
-test_site/accounts/__pycache__/
-test_site/__pycache__/*
-*/__pycache__/*
-.microf/*
+.microf
+./test_site/test_site/__pycache__/
+__pycache__/
+
+bin/
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+
+# Distribution / packaging
+.Python
+env/
+build/
+dist/
+lib/
+lib64/
+parts/
+sdist/
+var/
+
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+
+# Django stuff:
+*.log

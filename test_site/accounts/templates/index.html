@@ -27,10 +27,7 @@
                 <div class="sidebar-heading">Start Bootstrap </div>
                 <div class="list-group list-group-flush">
                 <a href="dashboards" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+                <a href="account" class="list-group-item list-group-item-action bg-light">Profile</a>
                 <a href="status_info" class="list-group-item list-group-item-action bg-light">Status</a>
                 </div>
             </div>
@@ -38,7 +35,6 @@
 
             <!-- Page Content -->
             <div id="page-content-wrapper">
-                <a href="{% url 'logout' %}">Logout</a>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
 
@@ -52,7 +48,8 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
