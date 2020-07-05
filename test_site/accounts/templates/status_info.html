@@ -1,15 +1,24 @@
 {% extends 'index.html' %}
 {% block content %}
 
-    <h1>Your current status, is online = {{user.useraccount.status}} </h1>
-    <dev>
-        Toggle online status 
-        <dev>
-        <form action="{% url 'change_status'%}"  method="post">
-            {% csrf_token %}
-          <p><input name = '123' type="submit" value={{status}}></p>
-        </form>
-    </dev>
-    </dev>
+    
+    {% if user.is_authenticated %}
+        <h1>Your current status, is online = {{user.useraccount.status}} </h1>
+
+            <dev>
+                Toggle online status 
+                <dev>
+                <form action="{% url 'change_status'%}"  method="post">
+                    {% csrf_token %}
+                <p><input name = '123' type="submit" value={{status}}></p>
+                </form>
+            </dev>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+            <p>Please login or register</p>
+            <a href="{% url 'login_url'%}">Login</a>
+            <a href="{% url 'register_url'%}">Register</a>
+    {% endif %}
+  
 {% endblock  %}
 

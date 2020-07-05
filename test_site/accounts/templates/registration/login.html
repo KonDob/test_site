@@ -1,7 +1,34 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+
+
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#ajax-text-me").click(function() {
+                console.log('asdf')
+                $.ajax({
+                    type: 'GET',
+                    async: true,
+                    url: '/ajax/',
+                    data: "param1=value1&param2=value2;",
+                    success: function(data) {
+                        $("#more-text-here1").append(data['first-text']);
+                        $("#more-text-here2").append(data['second-text']);
+
+                    },
+                    dataType: 'json',
+                });
+            });
+        });
+    </script>
+{% endblock %}
 
 {% block content%}
     <h1>System login</h1>
+    <a href="#" id="ajax-text-me">Натисни мене ніжно</a>
+    <div id="more-text-here1"></div>
+    <div id="more-text-here2"></div>
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}

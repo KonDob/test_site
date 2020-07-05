@@ -3,5 +3,7 @@
 microf/lib/
 microf/bin/
 test_site/test_site/__pycache__/
+test_site/accounts/__pycache__/
 test_site/__pycache__/*
 */__pycache__/*
+.microf/
