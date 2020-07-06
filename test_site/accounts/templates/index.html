@@ -16,6 +16,7 @@
 
         <!-- Custom styles for this template -->
         <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">
+
     </head>
     <body>
 
@@ -26,9 +27,9 @@
             <div class="bg-light border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading">Start Bootstrap </div>
                 <div class="list-group list-group-flush">
-                <a href="dashboards" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                <a href="account" class="list-group-item list-group-item-action bg-light">Profile</a>
-                <a href="status_info" class="list-group-item list-group-item-action bg-light">Status</a>
+                <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+                <a href="{% url 'personal_account' %}" class="list-group-item list-group-item-action bg-light">Profile</a>
+                <a href="{% url 'status_info' %}" class="list-group-item list-group-item-action bg-light">Status</a>
                 </div>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -74,18 +75,6 @@
             </div>
             </div>
 
-            <!-- /#page-content-wrapper -->
-            <!-- /#wrapper -->
-
-            <!-- Menu Toggle Script -->
-<!--            <script>-->
-<!--                $("#menu-toggle").click(function(e) {-->
-<!--                e.preventDefault();-->
-<!--                $("#wrapper").toggleClass("toggled");-->
-<!--                });-->
-
-<!--            </script>-->
-        
         {% else %}
                 <p>Please login or register</p>
                 <a href="{% url 'login_url'%}">Login</a>
