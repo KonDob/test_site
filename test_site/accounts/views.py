@@ -15,9 +15,6 @@ def indexView(request):
 @login_required
 def dashboardView(request):
     users = User.objects.values_list('username', flat = True)
-    
-    #TODO write function to determine is user is online
-    #TODO also remove extra symbols
     return render(request, 'dashboard.html', {'users': users})
 
 def registerView(request):
@@ -31,7 +28,7 @@ def registerView(request):
     
     return render(request,'registration/register.html', {'form':form})
 
-
+@login_required
 def account(request):
     return render(request, 'account.html')
 

@@ -1,19 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 </body>
-    <div class="d-flex" id="wrapper">      <!-- Sidebar -->
-            <div class="bg-light border-right" id="sidebar-wrapper">
-                <div class="sidebar-heading">Start Bootstrap </div>
-                    <div class="list-group list-group-flush">
-                    <a href="dashboards" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                    <a href="account" class="list-group-item list-group-item-action bg-light">Profile</a>
-                    <a href="status_info" class="list-group-item list-group-item-action bg-light">Status</a>
-                    </div>
-                </div>
+                    
             <div id="page-content-wrapper">
                 <div class="container-fluid">
-                    <h1 class="mt-4">Simple Sidebar</h1>
                     {% if user.is_authenticated %}
+                
                     <h1>Your current status, is online = {{user.useraccount.status}} </h1>
                     <h2><a class="nav-link" href="{% url 'home' %}">Checking Home page is necessary</a></h2>
                     Toggle online status
@@ -34,4 +26,4 @@
             </div>
         </div>
 </body>
-{% endblock  %}
+                    {% endblock  %}
