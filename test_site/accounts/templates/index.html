@@ -12,7 +12,7 @@
         <title>Welcome to Test Site</title>
 
         <!-- Bootstrap core CSS -->
-        <link href= " {% static  "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+        <link href= " {% static  'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
         <!-- Custom styles for this template -->
         <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">
@@ -36,7 +36,7 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+                <button class="btn btn-primary" id="menu-toggle">Click to see ajax request</button>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -78,13 +78,13 @@
             <!-- /#wrapper -->
 
             <!-- Menu Toggle Script -->
-            <script>
-                $("#menu-toggle").click(function(e) {
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
-                });
-            </script>
+<!--            <script>-->
+<!--                $("#menu-toggle").click(function(e) {-->
+<!--                e.preventDefault();-->
+<!--                $("#wrapper").toggleClass("toggled");-->
+<!--                });-->
 
+<!--            </script>-->
         
         {% else %}
                 <p>Please login or register</p>
@@ -95,9 +95,20 @@
         {% endblock %}
          <!-- Bootstrap core JavaScript -->
         {% comment %} <script src= "{% static 'vendor/jquery/jquery.min.js' %}"></script> {% endcomment %}
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script src= "{% static 'vendor/jquery/jquery.min.js' %}"></script>
         <script src= "{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
+        <script>
+            $("#menu-toggle").click(function() {
+                    $.ajax({
+                    type: 'GET',
+                    url : 'ajax_btn/',
+                    async: true,
+                    dataType: 'json',
+                    success: function(username){
+                        alert("Hi " + username.username)}
+                        });
+                   });
+         </script>
 
     </body>
 </html>

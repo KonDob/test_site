@@ -62,9 +62,10 @@ def validate_username(request):
     return JsonResponse(data)
 
 
-def add_ajax(request):
+def ajax_btn(request):
     if request.is_ajax():
-        response = {'first-text': 'Lorem Ipsum is simply dummy text', 'second-text': 'to make a type specimen book. It has '}
+        username = request.user.username
+        response = {'username': username}
         return JsonResponse(response)
     else:
         raise Http404

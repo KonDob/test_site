@@ -3,10 +3,6 @@
 {% block javascript %}
     <script>
         $('#id_username').change(function () {
-<<<<<<< HEAD
-=======
-            console.log($(this).val())
->>>>>>> 8b0a74ed847e75f06931feb517013f9cfee7fc80
             var username = $(this).val();
             $.ajax({
                 url: 'validate_username/',

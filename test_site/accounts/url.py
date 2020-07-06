@@ -15,4 +15,5 @@ urlpatterns = [
     path('change_status/', views.change_status, name = 'change_status'),
     path('account/', views.account, name = 'personal_account'),
     path('register/validate_username/', views.validate_username, name='validate_username'),
+    path('ajax_btn/', views.ajax_btn, name='ajax_btn'),
 ]
