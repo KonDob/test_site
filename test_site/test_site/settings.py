@@ -49,11 +49,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
-MIDDLEWARE_CLASSES = (
-    
-    'online_users.middleware.OnlineNowMiddleware',
-)
-
 ROOT_URLCONF = 'test_site.urls'
 
 TEMPLATES = [
@@ -118,27 +113,25 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Setup caching per Django docs. In actuality, you'd probably use memcached instead of local memory.
+# Setup caching per Django docs.
+# In actuality, you'd probably use memcached instead of local memory.
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211', 
+        'LOCATION': '127.0.0.1:11211'
     }
 }
 
 # Number of seconds of inactivity before a user is marked offline
 USER_ONLINE_TIMEOUT = 300
 
-# Number of seconds that we will keep track of inactive users for before 
-# their last seen is removed from the cache
-USER_LASTSEEN_TIMEOUT = 60 * 60 * 24 * 7
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
-STATICFILES_DIRS = [ 
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
     ]
 MEDIA_URL = '/mediafiles/'

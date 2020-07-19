@@ -2,20 +2,19 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.contrib.sessions.models import Session
-from .models import UserAccount
-from django.utils import timezone
-from django.contrib import messages
 from django.http import JsonResponse, Http404
+
 
 # Create your views here.
 def indexView(request):
     return render(request, 'index.html')
 
+
 @login_required
 def dashboardView(request):
-    users = User.objects.values_list('username', flat = True)
+    users = User.objects.values_list('username', flat=True)
     return render(request, 'dashboard.html', {'users': users})
+
 
 def registerView(request):
     if request.method == "POST":
@@ -25,8 +24,8 @@ def registerView(request):
             return redirect('login_url')
     else:
         form = UserCreationForm()
-    
-    return render(request,'registration/register.html', {'form':form})
+    return render(request, 'registration/register.html', {'form': form})
+
 
 @login_required
 def account(request):
@@ -38,7 +37,6 @@ def status_info(request):
 
 
 def change_status(request):
-    #TODO change value of current user status
     if request.method == "POST":
         if request.user.useraccount.status:
             request.user.useraccount.toggle_status()
@@ -46,9 +44,9 @@ def change_status(request):
         else:
             request.user.useraccount.toggle_status()
             btn_status = 'Offline'
-            
     return render(request, 'status_info.html', {'status': btn_status})
-    
+
+
 def validate_username(request):
     username = request.GET.get('username', None)
     data = {

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Welcome, {{user.username}}</h1>
-    <h1>List of all users, {{users}}</h1>
-    {%for user in users %}
-        {% if user.is_authenticated %}
-            <h1>{{user}} User is user.is_authenticated</h1>
-        {% else %}
-            <h4>{{user}} User isn`t user.is_authenticated</h4>
-        {% endif %}
-    {% endfor %}
+<h1>Welcome, {{user.username}}</h1>
+<h1>List of all users, {{users}}</h1>
+{%for user in users %}
+{% if user.is_authenticated %}
+<h1>{{user}} User is user.is_authenticated</h1>
+{% else %}
+<h4>{{user}} User isn`t user.is_authenticated</h4>
+{% endif %}
+{% endfor %}
 {% endblock  %}
